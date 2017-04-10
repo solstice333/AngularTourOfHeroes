@@ -1,2 +1,15 @@
 <h1>{{title}}</h1>
-<h2>{{hero}} details!</h2>
+<div class="form-group">
+    <label for="name">name: </label> 
+    <input type="text" class="form-control" id="name" required 
+        [ngModel]="hero.name"
+        (ngModelChange)="name_change($event)" 
+        name="name"> 
+    
+     <!--<input [(ngModel)]="hero.name" placeholder="name"> -->
+</div>
+<h3 *ngIf="is_many()">There are many heroes:</h3>
+<h3 *ngIf="!is_many()">Heroes:</h3>
+<ul>
+    <li *ngFor="let hero of heroes">{{hero.name}}</li>
+</ul>
