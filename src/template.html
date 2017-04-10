@@ -10,6 +10,8 @@
 </div>
 <h3 *ngIf="is_many()">There are many heroes:</h3>
 <h3 *ngIf="!is_many()">Heroes:</h3>
-<ul>
-    <li *ngFor="let hero of heroes">{{hero.name}}</li>
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <span class="badge">{{hero.id}}</span>{{hero.name}}
+    </li>
 </ul>
