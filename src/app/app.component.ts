@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 export class Hero {
-  // non-shorthand
-  // public id: number
+  // non-shorthand (public by default)
+  // public id: number 
   // public name: string
+  
   constructor(public id: number, public name: string) { // shorthand
     this.id = id;
     this.name = name;
@@ -30,19 +31,28 @@ const HEROES = [
   styleUrls: ['styles.css']
 })
 export class AppComponent  { 
-  title = 'Tour of Heroes';
-  heroes = HEROES;
-  hero = this.heroes[0];
-  many = 5;
+  private static MANY: number = 5;
+
+  selectedHero: Hero;
+
+  title: string = 'Tour of Heroes';
+  heroes: Hero[] = HEROES;
 
   // if you need to declare a property of function type consider the syntax below
-  // is_many: ()=>Boolean; 
+  // many: ()=>Boolean; 
 
-  is_many = function(): Boolean { return this.heroes.length > this.many };
-  name_change = function(event: String): void { 
+  get many(): boolean { return this.heroes.length > AppComponent.MANY };
+  
+  get selectedHeroDefined(): boolean { 
+    return this.selectedHero !== undefined
+  }
+
+  onNameChange(event: string): void { 
     console.log("logged " + event + " at " + new Date());
-    this.heroes[0].name = event; 
+    this.selectedHero.name = event; 
   };
+  
+  onSelect(hero: Hero): void { this.selectedHero = hero; }
 
   // alternate ctor way if you wanted to add conditional logic maybe
   // title: string;
