@@ -1,15 +1,5 @@
 import { Component } from '@angular/core';
-
-export class Hero {
-  // non-shorthand (public by default)
-  // public id: number 
-  // public name: string
-  
-  constructor(public id: number, public name: string) { // shorthand
-    this.id = id;
-    this.name = name;
-  }
-}
+import { Hero } from './app.hero';
 
 const HEROES = [
   new Hero(11, 'Mr. Nice'),
