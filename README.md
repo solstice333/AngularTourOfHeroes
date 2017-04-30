@@ -1,8 +1,9 @@
-*Angular2 Tour of Heroes*
+# Angular2 Tour of Heroes
 
-**Description**
+## Description
 Angular2 tutorial
 
-**Usage**
-`npm install`
-`npm start`
+## Usage
+`$ npm install`
+`$ npm start`
+
