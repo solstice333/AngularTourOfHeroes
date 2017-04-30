@@ -1,0 +1,12 @@
+<div *ngIf="hero"> <!-- you can put normal js expressions here, but for style purposes... -->
+    <h2>{{hero.name}} details!</h2>
+    <div><label>id: </label>{{hero.id}}</div>
+    <div>
+        <label>name: </label>
+        <input type="text" 
+            [ngModel]="hero.name"
+            (ngModelChange)="onNameChange($event)"
+            placeholder="name">
+    </div>
+    <!--<input [(ngModel)]="hero.name" placeholder="name"> -->
+</div>

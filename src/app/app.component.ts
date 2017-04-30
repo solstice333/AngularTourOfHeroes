@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Hero } from './app.hero';
+import { Hero } from './hero';
 
 const HEROES = [
   new Hero(11, 'Mr. Nice'),
@@ -17,7 +17,7 @@ const HEROES = [
 @Component({
   selector: 'my-app',
   // template: `<h1>Hello {{name}}</h1>`, // use backticks to make multiline text
-  templateUrl: 'template.html',
+  templateUrl: 'app.html',
   styleUrls: ['styles.css']
 })
 export class AppComponent  { 
@@ -33,10 +33,6 @@ export class AppComponent  {
 
   get many(): boolean { return this.heroes.length > AppComponent.MANY };
   
-  get selectedHeroDefined(): boolean { 
-    return this.selectedHero !== undefined
-  }
-
   onNameChange(event: string): void { 
     console.log("logged " + event + " at " + new Date());
     this.selectedHero.name = event; 

@@ -8,16 +8,16 @@ export class UnlessDirective {
     private _hasView: Boolean;
 
     constructor(
-        private templateRef: TemplateRef<any>,
-        private viewContainer: ViewContainerRef) {}
+        private _templateRef: TemplateRef<any>,
+        private _viewContainer: ViewContainerRef) {}
 
     @Input() set myUnless(condition: Boolean) {
         if (!condition && !this._hasView) {
-            this.viewContainer.createEmbeddedView(this.templateRef);
+            this._viewContainer.createEmbeddedView(this._templateRef);
             this._hasView = true;
         }
         else {
-            this.viewContainer.clear();
+            this._viewContainer.clear();
             this._hasView = false;
         }
     }
