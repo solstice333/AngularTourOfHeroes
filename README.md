@@ -4,6 +4,8 @@
 Angular2 tutorial
 
 ## Usage
+
 `$ npm install`
+
 `$ npm start`
 
