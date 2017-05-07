@@ -1,12 +1,13 @@
 <h1>{{title}}</h1>
 <h3 *ngIf="many">There are many heroes:</h3>
-<h3 *myUnless="many">Heroes:</h3>
+<h3 *myUnless="many || none">Heroes:</h3>
 <ul class="heroes">
     <li *ngFor="let hero of heroes" 
         [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span>{{hero.name}}
     </li>
 </ul>
+<!--<hero-detail [hero]="selectedHero">hero detail here</hero-detail>-->
 <hero-detail [hero]="selectedHero" (heroNameChange)=onNameChange($event)>
     hero detail here
 </hero-detail>
