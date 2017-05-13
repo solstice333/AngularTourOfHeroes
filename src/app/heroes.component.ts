@@ -3,9 +3,9 @@ import { Hero } from './hero';
 import { HeroService } from './hero.service'
 
 @Component({
-  selector: 'my-heroes',
+  selector: 'heroes',
   // template: `<h1>Hello {{name}}</h1>`, // use backticks to make multiline text
-  templateUrl: 'my-heroes.html',
+  templateUrl: 'heroes.component.html',
   styleUrls: ['styles.css']
 })
 export class HeroesComponent { 
@@ -14,11 +14,10 @@ export class HeroesComponent {
   private heroes: Hero[];
 
   private _initHeroes(): void {
-    this.heroService.heroesSlowly
+    // this.heroService.heroesSlowly
+    this.heroService.heroes
     .then(heroesReceived => this.heroes = heroesReceived)
-    .catch(error => {
-      console.error("Error: " + error);
-    });
+    .catch(error => console.error(error));
     
     this.heroes = [];
   }
