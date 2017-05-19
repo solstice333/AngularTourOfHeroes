@@ -9,9 +9,14 @@ export class HeroService {
     }
 
     get heroesSlowly(): Promise<Hero[]> {
-        return new Promise((resolve) => {
-            setTimeout(() => resolve(this.heroes), 2000)
-        });
+        return new Promise(resolve => 
+            setTimeout(() => resolve(this.heroes), 2000));
+    }
+
+    getHero(id: number): Promise<Hero> {
+        return Promise.resolve(this.heroes
+            .then(heroes => heroes
+                .find(hero => hero.id === id)));
     }
 }
 
