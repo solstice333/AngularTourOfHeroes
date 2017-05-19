@@ -25,6 +25,10 @@ export class HeroDetailComponent implements OnInit {
             .subscribe(hero => this.hero = hero)
     }
 
+    goBack(): void {
+        this.location.back();
+    }
+
     // the name of the param is still exposed to the parent
     // template as $event. See the parent component's template
     onNameChange(event: String): void {
