@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'heroes',
@@ -22,7 +23,9 @@ export class HeroesComponent {
     this.heroes = [];
   }
 
-  constructor(private heroService: HeroService) {}
+  constructor(
+    private heroService: HeroService, 
+    private router: Router) {}
 
   ngOnInit(): void {
     this._initHeroes();
@@ -42,6 +45,9 @@ export class HeroesComponent {
     this.selectedHero.name = event; 
   };
   
-  onSelect(hero: Hero): void { this.selectedHero = hero; }
+  onSelect(hero: Hero): void { 
+    this.selectedHero = hero;
+    this.router.navigate(['/detail', hero.id]);
+  }
 }
 
