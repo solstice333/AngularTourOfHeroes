@@ -47,7 +47,7 @@ export class HeroesComponent {
   
   onSelect(hero: Hero): void { 
     this.selectedHero = hero;
-    this.router.navigate(['/detail', hero.id]);
+    // this.router.navigate(['/detail', hero.id]);
   }
 }
 
