@@ -31,7 +31,10 @@ export class HeroDetailComponent implements OnInit {
 
     // the name of the param is still exposed to the parent
     // template as $event. See the parent component's template
-    onNameChange(event: String): void {
+    onNameChange(event: string): void {
+        console.log(new Date() + 
+            ": onNameChange hero-detail.component hook: " + event);
+        this.hero.name = event;
         this.heroNameChange.emit(event);
     }
 }

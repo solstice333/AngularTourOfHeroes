@@ -7,6 +7,9 @@
             [ngModel]="hero.name"
             (ngModelChange)="onNameChange($event)"
             placeholder="name">
+        <!-- two way binding will work for any property whose naming scheme
+        matches the following "foo" for value input and "fooChange" for event 
+        output, where "foo" can be any valid variable name -->
         <!--<input [(ngModel)]="hero.name" placeholder="name"> -->
     </div>
     <button (click)="goBack()">Back</button>

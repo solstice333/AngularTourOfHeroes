@@ -41,13 +41,15 @@ export class HeroesComponent {
   get none(): boolean { return this.heroes.length === 0 };
 
   onNameChange(event: string): void { 
-    console.log("logged " + event + " at " + new Date());
+    console.log(new Date() + ": heroes.component consumed " + event);
     this.selectedHero.name = event; 
   };
   
   onSelect(hero: Hero): void { 
     this.selectedHero = hero;
-    // this.router.navigate(['/detail', hero.id]);
+  }
+
+  goToDetail(): void {
+    this.router.navigate(['/detail', this.selectedHero.id]);
   }
 }
-
