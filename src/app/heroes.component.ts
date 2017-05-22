@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'heroes',
-  templateUrl: 'heroes.component.html',
-  styleUrls: ['heroes.component.css']
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
   
   // backticks for multiline strings
   // template: `
