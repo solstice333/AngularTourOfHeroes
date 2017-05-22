@@ -7,7 +7,7 @@
     </li>
 </ul>
 <div *ngIf="selectedHero">
-    <h2>{{selectedHero.name | uppercase}} is my hero</h2>
+    <h2>{{selectedHero.name | capitalize}} is my hero</h2>
     <button (click)="goToDetail()">View Details</button>
 </div>
 

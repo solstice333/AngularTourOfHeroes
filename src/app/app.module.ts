@@ -9,6 +9,7 @@ import { HeroesComponent } from './heroes.component'
 import { HeroService } from './hero.service';
 import { DashboardComponent } from './dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CapitalizePipe } from './capitalize.pipe';
 
 @NgModule({
   imports: [ 
@@ -21,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     UnlessDirective, 
     HeroDetailComponent, 
     HeroesComponent,
-    DashboardComponent 
+    DashboardComponent,
+    CapitalizePipe
   ],
   bootstrap: [ 
     AppComponent 

@@ -10,5 +10,5 @@ export const HEROES: Hero[] = [
   new Hero(17, 'Dynama'),
   new Hero(18, 'Dr IQ'),
   new Hero(19, 'Magma'),
-  new Hero(20, 'Tornado')
+  new Hero(20, 'tornado')
 ];
