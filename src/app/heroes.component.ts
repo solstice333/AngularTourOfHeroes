@@ -5,9 +5,21 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'heroes',
-  // template: `<h1>Hello {{name}}</h1>`, // use backticks to make multiline text
   templateUrl: 'heroes.component.html',
   styleUrls: ['heroes.component.css']
+  
+  // backticks for multiline strings
+  // template: `
+  //   <h2>heroes:</h2>
+  //   <ul>
+  //     <li>foo</li>
+  //     <li>bar</li>
+  //   </ul>`,
+  // styles: [`
+  //   h1 {
+  //     color: black
+  //   }`
+  // ]
 })
 export class HeroesComponent { 
   private static MANY: number = 5;
