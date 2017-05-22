@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'heroes',
   // template: `<h1>Hello {{name}}</h1>`, // use backticks to make multiline text
   templateUrl: 'heroes.component.html',
-  styleUrls: ['styles.css']
+  styleUrls: ['heroes.component.css']
 })
 export class HeroesComponent { 
   private static MANY: number = 5;
