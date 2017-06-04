@@ -1,11 +1,30 @@
 import { Injectable } from '@angular/core';
+import { Headers, Http } from '@angular/http'
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+
+import 'rxjs/add/operator/toPromise';
+
 
 @Injectable()
 export class HeroService {
+    private heroesUrl = 'api/heroes'; // must match with table name
+    private headers = new Headers({'Content-Type': 'application/json'});
+
+    private handleError(error: any): Promise<any> {
+        console.error(error);
+        return Promise.reject(error.message || error);
+    }
+
+    constructor(private http: Http) {}
+
     get heroes(): Promise<Hero[]> { 
-        return Promise.resolve(HEROES);
+        return this.http.get(this.heroesUrl)
+            .toPromise()
+            .then(resp => {
+                console.log(JSON.stringify(resp.json()));
+                return resp.json().data as Hero[];
+            })
+            .catch(this.handleError);
     }
 
     get heroesSlowly(): Promise<Hero[]> {
@@ -14,9 +33,20 @@ export class HeroService {
     }
 
     getHero(id: number): Promise<Hero> {
-        return Promise.resolve(this.heroes
-            .then(heroes => heroes
-                .find(hero => hero.id === id)));
+        const url = `${this.heroesUrl}/${id}`;
+        return this.http.get(url)
+            .toPromise()
+            .then(response => response.json().data as Hero)
+            .catch(this.handleError);
+    }
+
+    update(hero: Hero): Promise<Hero> {
+        const url = `${this.heroesUrl}/${hero.id}`;
+        return this.http
+            .put(url, JSON.stringify(hero), {headers: this.headers})
+            .toPromise()
+            .then(() => hero)
+            .catch(this.handleError);
     }
 }
 

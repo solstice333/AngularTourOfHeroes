@@ -30,6 +30,11 @@ export class HeroDetailComponent implements OnInit {
         this.location.back();
     }
 
+    save(): void {
+        this.heroService.update(this.hero)
+            .then(() => this.goBack());
+    }
+
     // the name of the param is still exposed to the parent
     // template as $event. See the parent component's template
     onNameChange(event: string): void {

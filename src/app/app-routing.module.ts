@@ -34,7 +34,7 @@ const routes: Routes = [
                                              // available to component
                                              // templates in this module
     exports: [RouterModule] // exporting to parent module to make 
-                            // directives/pipes available to the 
-                            // component templates of that parent module
+                            // directives/pipes available (like routerLink) 
+                            // to the component templates of that parent module
 })
 export class AppRoutingModule {}
