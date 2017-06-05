@@ -64,4 +64,14 @@ export class HeroesComponent {
   goToDetail(): void {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (name)
+      this.heroService.create(name)
+        .then(hero => {
+          this.heroes.push(hero);
+          this.selectedHero = null;
+        });
+  }
 }
