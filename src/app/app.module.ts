@@ -11,6 +11,7 @@ import { HeroService } from './hero.service';
 import { DashboardComponent } from './dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CapitalizePipe } from './capitalize.pipe';
+import { HeroSearchComponent } from './hero-search.component';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -30,7 +31,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     HeroDetailComponent, 
     HeroesComponent,
     DashboardComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    HeroSearchComponent
   ],
   bootstrap: [ // root component that ang creates and inserts 
                // into the index.html host web page
