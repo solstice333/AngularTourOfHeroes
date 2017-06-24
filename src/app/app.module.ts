@@ -25,7 +25,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
-  declarations: [ // components, directives, pipes go here
+  declarations: [ // components, directives, pipes go here i.e. view directives
     AppComponent, 
     UnlessDirective, 
     HeroDetailComponent, 
