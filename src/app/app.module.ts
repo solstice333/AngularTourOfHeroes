@@ -17,8 +17,8 @@ import { HeroService } from './hero.service';
 import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
-  imports: [ // imported into the application (not like the import
-             // statement that resolves symbols)
+  imports: [ // make public view directives from imported modules
+             // visible to component templates of this module
     BrowserModule, 
     FormsModule,
     AppRoutingModule,
