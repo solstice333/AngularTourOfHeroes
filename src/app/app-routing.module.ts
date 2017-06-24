@@ -30,17 +30,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)], // import directives/pipes to make
-                                             // available to component
-                                             // templates in this module. Bring in
-                                             // exported classes from the imported
-                                             // module into the components declared
-                                             // in this class
-    exports: [RouterModule] // exporting to parent module to make 
-                            // directives/pipes available (like routerLink) 
-                            // to the component templates of that parent module.
-                            // In other words, the subset of declarations that
-                            // are made visible to other component templates of
-                            // other modules
+    imports: [RouterModule.forRoot(routes)], // make public components, pipes, 
+                                             // directives belonging to
+                                             // imported modules visible to 
+                                             // components in this module
+    exports: [RouterModule] // make view directives available (like routerLink) 
+                            // to the component templates of the parent module
+                            // i.e. the module importing this module
 })
 export class AppRoutingModule {}
