@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 import { Router } from '@angular/router';
+import { LoggerService } from './logger.service';
 
 @Component({
   selector: 'heroes',
@@ -37,7 +38,8 @@ export class HeroesComponent {
 
   constructor(
     private heroService: HeroService, 
-    private router: Router) {}
+    private router: Router,
+    private logger: LoggerService) {}
 
   ngOnInit(): void {
     this._initHeroes();
@@ -53,7 +55,7 @@ export class HeroesComponent {
   get none(): boolean { return this.heroes.length === 0 };
 
   onNameChange(event: string): void { 
-    console.log(new Date() + ": heroes.component consumed " + event);
+    this.logger.log(`${new Date()}: heroes.component consumed ${event}`);
     this.selectedHero.name = event; 
   };
   

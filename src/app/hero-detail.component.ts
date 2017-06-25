@@ -3,6 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+import { LoggerService } from './logger.service';
+
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -17,7 +19,8 @@ export class HeroDetailComponent implements OnInit {
     constructor(
         private heroService: HeroService,        
         private route: ActivatedRoute,
-        private location: Location) {}
+        private location: Location,
+        private logger: LoggerService) {}
 
     ngOnInit(): void {
         this.route.params
@@ -38,8 +41,9 @@ export class HeroDetailComponent implements OnInit {
     // the name of the param is still exposed to the parent
     // template as $event. See the parent component's template
     onNameChange(event: string): void {
-        console.log(new Date() + 
-            ": onNameChange hero-detail.component hook: " + event);
+        this.logger.log(
+            `${new Date()}: onNameChange hero-detail.component` +
+            `hook: ${event}`);
         this.hero.name = event;
         this.heroNameChange.emit(event);
     }

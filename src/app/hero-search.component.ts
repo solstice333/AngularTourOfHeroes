@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Hero } from './hero'
+
+import { HeroSearchService } from './hero-search.service'
+import { LoggerService } from './logger.service';
+
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
@@ -12,9 +17,6 @@ import 'rxjs/add/operator/catch'; // catch errors on observable to be handled by
 import 'rxjs/add/operator/debounceTime'; // emits value from src observable only after particular time span has passed without another src emission
 import 'rxjs/add/operator/distinctUntilChanged'; // return observable that emits items emitted by src observable that are distinct by comparison from previous item
 import 'rxjs/add/operator/switchMap'; // request-cancel-new-request i.e. emit value only from most recently projected observable which will drop any earlier emissions still processing
-
-import { HeroSearchService } from './hero-search.service'
-import { Hero } from './hero'
 
 @Component({
     selector: 'hero-search',
@@ -28,7 +30,8 @@ export class HeroSearchComponent implements OnInit {
 
     constructor(
         private heroSearchService: HeroSearchService,
-        private router: Router) {}
+        private router: Router,
+        private logger: LoggerService) {}
 
     search(term: string): void {
         this.searchTerms.next(term);
@@ -44,7 +47,7 @@ export class HeroSearchComponent implements OnInit {
                     Observable.of([] as Hero[])
                 })
             .catch(error => {
-                console.log(error);
+                this.logger.error(error);
                 return Observable.of([] as Hero[]);
             });
     }

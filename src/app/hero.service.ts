@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http'
 import { Hero } from './hero';
+import { LoggerService } from './logger.service';
 
 import 'rxjs/add/operator/toPromise';
-
 
 @Injectable()
 export class HeroService {
@@ -15,13 +15,15 @@ export class HeroService {
         return Promise.reject(error.message || error);
     }
 
-    constructor(private http: Http) {}
+    constructor(
+        private http: Http,
+        private logger: LoggerService) {}
 
     get heroes(): Promise<Hero[]> { 
         return this.http.get(this.heroesUrl)
             .toPromise()
             .then(resp => {
-                console.log(JSON.stringify(resp.json()));
+                this.logger.log(JSON.stringify(resp.json()));
                 return resp.json().data as Hero[];
             })
             .catch(this.handleError);
@@ -54,7 +56,7 @@ export class HeroService {
             .post(this.heroesUrl, JSON.stringify({name: heroName}), {headers: this.headers})
             .toPromise()
             .then(res => {
-                console.log(`res.json(): ${JSON.stringify(res.json())}`);
+                this.logger.log(`res.json(): ${JSON.stringify(res.json())}`);
                 return res.json().data as Hero;                
             })
             .catch(this.handleError);
