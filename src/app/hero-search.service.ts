@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-
 import { Hero } from './hero';
+
+import { BackendService } from './backend.service';
 
 @Injectable()
 export class HeroSearchService {
-    constructor(private http: Http) {}
+    constructor(
+        private http: Http,
+        private backend: BackendService) {}
 
     search(term: string): Observable<Hero[]> {
-        return this.http.get(`app/heroes/?name=${term}`)
-            .map(response => response.json().data as Hero[]);
+        return this.backend.search(term) as Observable<Hero[]>;
     }
 }

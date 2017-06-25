@@ -15,6 +15,7 @@ import { CapitalizePipe } from './capitalize.pipe';
 
 import { HeroService } from './hero.service';
 import { LoggerService } from './logger.service';
+import { BackendService } from './backend.service';
 import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
@@ -41,7 +42,8 @@ import { InMemoryDataService } from './in-memory-data.service';
   ],
   providers: [ // provide a service here for components to use
     HeroService,
-    LoggerService
+    LoggerService,
+    BackendService
   ]
 })
 export class AppModule {}
